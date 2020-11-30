@@ -1,0 +1,27 @@
+@primary: #ffffff;
+@secondary: #000000;
+
+
+.App{
+  text-align: center;
+
+  input{
+    padding: 15px;
+    border-radius: 15px;
+    border: 2px solid @secondary;
+
+
+    &:focus{
+      outline: none;
+    }
+  }
+
+  .robots{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    column-gap: 10px;
+    row-gap: 10px;
+  }
+
+}
