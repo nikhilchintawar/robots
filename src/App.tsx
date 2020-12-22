@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import { FormControl } from 'react-bootstrap';
+import { InputGroup } from 'react-bootstrap';
 import './App.less';
 
 
@@ -26,9 +28,9 @@ const App = () => {
       .catch(error => console.log(error))
   }, []);
 
-  const onSearchChange = (event: React.SyntheticEvent<HTMLInputElement>):void => {
-    const target = event.target as typeof event.target & {value: string};
-    setSearchField(target.value)
+  const onSearchChange = (event: React.ChangeEvent<FormControlElement>):void => {
+    // const target = event.target as typeof event.target & {value: string};
+    setSearchField(event.target.value)
   }
 
   const filteredRobots = robots.filter(robot =>{
@@ -40,8 +42,8 @@ const App = () => {
       <header>
         <h1>ROBOTS</h1>
       </header>
-      <input type="text" value={searchField} onChange={onSearchChange} />
-    
+      <FormControl type="text" value={searchField} onChange={onSearchChange} />
+
     <div className="robots">
       {
         filteredRobots.map(robot => (
